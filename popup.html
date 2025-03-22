@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Comment Sentiment Analyzer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>YouTube Comment Analyzer</h1>
+    
+    <!-- Simplified UI: Just a button -->
+    <div class="input-container">
+      <button id="analyze-button">Analyze Comments</button>
+    </div>
+    
+    <div class="error-container">
+      <p class="error-text"></p>
+    </div>
+    
+    <div class="loading-container">
+      <div class="loading-spinner"></div>
+      <p class="loading-text">Loading...</p>
+    </div>
+    
+    <div class="video-info">
+      <h2 id="video-title"></h2>
+      <p>by <span id="video-author"></span></p>
+    </div>
+    
+    <div class="results-container">
+      <div class="summary-container">
+        <div class="chart-container">
+          <canvas id="sentiment-chart"></canvas>
+        </div>
+        
+        <div class="stats-container">
+          <h3>Summary</h3>
+          <p>Total Comments: <span id="comments-count">0</span></p>
+          <p>Positive: <span id="positive-count" class="positive">0</span></p>
+          <p>Negative: <span id="negative-count" class="negative">0</span></p>
+          <p>Neutral: <span id="neutral-count" class="neutral">0</span></p>
+          <p>Spam: <span id="spam-count" class="spam">0</span></p>
+          <p class="model-info-container">Model: <span id="model-info"></span></p>
+        </div>
+      </div>
+      
+      <div class="tabs-container">
+        <div class="tab-headers">
+          <div class="tab-header active" data-tab="positive-comments">Positive</div>
+          <div class="tab-header" data-tab="negative-comments">Negative</div>
+          <div class="tab-header" data-tab="neutral-comments">Neutral</div>
+          <div class="tab-header" data-tab="spam-comments">Spam</div>
+        </div>
+        
+        <div class="tab-contents">
+          <div class="tab-content" id="positive-comments"></div>
+          <div class="tab-content" id="negative-comments" style="display: none;"></div>
+          <div class="tab-content" id="neutral-comments" style="display: none;"></div>
+          <div class="tab-content" id="spam-comments" style="display: none;"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>Created by: Code & Coffee Crew </p>
+    </div>
+  </div>
+  
+  <!-- Load other scripts -->
+  <script src="vader.js"></script>
+  <script src="tokenizer.js"></script>
+  <script src="transformer-sentiment.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

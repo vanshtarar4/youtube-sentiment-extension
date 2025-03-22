@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Comment Sentiment Analyzer",
+  "version": "1.0",
+  "description": "Analyze the sentiment of YouTube video comments to understand audience reactions.",
+  "permissions": ["activeTab", "tabs"],
+  "host_permissions": [
+    "https://www.googleapis.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}
