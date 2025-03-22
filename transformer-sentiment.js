@@ -1,4 +1,4 @@
-// Simplified transformer sentiment analyzer for Chrome extensions
+
 class TransformerSentiment {
     constructor() {
       this.isLoaded = false;
@@ -12,7 +12,7 @@ class TransformerSentiment {
   
       this.loadingPromise = new Promise(async (resolve, reject) => {
         try {
-          // Simulate loading progress for demo
+          
           for (let i = 0; i < 10; i++) {
             await new Promise(r => setTimeout(r, 200));
             if (progressCallback) progressCallback((i+1)/10);
@@ -35,11 +35,8 @@ class TransformerSentiment {
       }
   
       try {
-        // Simple sentiment logic (just for demonstration)
-        // In a real implementation, this would use the model
         const words = text.toLowerCase().split(/\s+/);
         
-        // Simple word lists for demo
         const positiveWords = ['good', 'great', 'excellent', 'amazing', 'love', 'best', 'awesome', 'nice', 'thanks', 'helpful', 'beautiful', 'perfect', 'enjoyed', 'fantastic', 'wonderful', 'happy', 'impressed'];
         const negativeWords = ['bad', 'awful', 'terrible', 'horrible', 'hate', 'worst', 'poor', 'stupid', 'boring', 'disappointing', 'waste', 'annoying', 'useless', 'ridiculous', 'ugly', 'wrong', 'sad'];
         
@@ -56,7 +53,6 @@ class TransformerSentiment {
         const neg = negCount / total;
         const neu = 1 - (pos + neg);
         
-        // Calculate compound score (-1 to 1)
         let compound = 0;
         if (pos > neg) {
           compound = pos * (1 - neg/2);
